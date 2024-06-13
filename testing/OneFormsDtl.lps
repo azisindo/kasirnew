@@ -7,10 +7,11 @@
       <Unit>
         <Filename Value="OneFormsDtl.lpr"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="-1"/>
+        <EditorIndex Value="9"/>
         <TopLine Value="3"/>
-        <CursorPos X="45" Y="11"/>
+        <CursorPos X="39" Y="13"/>
         <UsageCount Value="185"/>
+        <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="unit_one_forms_dtl.pas"/>
@@ -28,7 +29,7 @@
         <Filename Value="../class/class_dbconnection.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="5"/>
-        <TopLine Value="45"/>
+        <TopLine Value="13"/>
         <CursorPos X="3" Y="13"/>
         <UsageCount Value="185"/>
         <Loaded Value="True"/>
@@ -36,10 +37,9 @@
       <Unit>
         <Filename Value="model_one_forms_dtl.pas"/>
         <IsPartOfProject Value="True"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
-        <TopLine Value="169"/>
-        <CursorPos X="29" Y="186"/>
+        <TopLine Value="142"/>
+        <CursorPos X="36" Y="183"/>
         <UsageCount Value="185"/>
         <Loaded Value="True"/>
       </Unit>
@@ -47,7 +47,7 @@
         <Filename Value="../form/unit_libstring.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="8"/>
-        <TopLine Value="89"/>
+        <TopLine Value="79"/>
         <CursorPos X="26" Y="79"/>
         <UsageCount Value="183"/>
         <Loaded Value="True"/>
@@ -56,7 +56,7 @@
         <Filename Value="../class/class_init_db.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="3"/>
-        <TopLine Value="32"/>
+        <TopLine Value="14"/>
         <CursorPos X="3" Y="14"/>
         <UsageCount Value="184"/>
         <Loaded Value="True"/>
@@ -65,7 +65,7 @@
         <Filename Value="../class/class_unit_usaha.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="73"/>
+        <TopLine Value="71"/>
         <CursorPos X="28" Y="85"/>
         <UsageCount Value="179"/>
         <Loaded Value="True"/>
@@ -93,7 +93,7 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="4"/>
-        <TopLine Value="144"/>
+        <TopLine Value="126"/>
         <CursorPos X="39" Y="153"/>
         <UsageCount Value="82"/>
         <Loaded Value="True"/>
@@ -102,7 +102,7 @@
       <Unit>
         <Filename Value="../lov/model_list_of_values.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="10"/>
+        <EditorIndex Value="11"/>
         <TopLine Value="45"/>
         <CursorPos X="41" Y="51"/>
         <UsageCount Value="56"/>
@@ -135,8 +135,9 @@
       </Unit>
       <Unit>
         <Filename Value="setvar.json"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="6"/>
-        <CursorPos X="17" Y="10"/>
+        <CursorPos X="41" Y="5"/>
         <UsageCount Value="88"/>
         <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="None"/>
@@ -170,7 +171,7 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="ULov"/>
-        <EditorIndex Value="9"/>
+        <EditorIndex Value="10"/>
         <TopLine Value="230"/>
         <CursorPos X="35" Y="230"/>
         <UsageCount Value="48"/>
@@ -189,7 +190,7 @@
         <Filename Value="../../component/lib-master/libstring.pas"/>
         <UnitName Value="Libstring"/>
         <EditorIndex Value="7"/>
-        <TopLine Value="276"/>
+        <TopLine Value="309"/>
         <CursorPos X="44" Y="333"/>
         <UsageCount Value="27"/>
         <Loaded Value="True"/>
@@ -204,10 +205,6 @@
       </Unit>
     </Units>
     <JumpHistory HistoryIndex="29">
-      <Position>
-        <Filename Value="unit_one_forms_dtl.pas"/>
-        <Caret Line="268" TopLine="230"/>
-      </Position>
       <Position>
         <Filename Value="unit_one_forms_dtl.pas"/>
         <Caret Line="153" Column="3" TopLine="103"/>
@@ -305,10 +302,6 @@
         <Caret Line="204" Column="40" TopLine="102"/>
       </Position>
       <Position>
-        <Filename Value="unit_one_forms_dtl.pas"/>
-        <Caret Line="222" Column="3" TopLine="223"/>
-      </Position>
-      <Position>
         <Filename Value="model_one_forms_dtl.pas"/>
         <Caret Line="134" Column="42" TopLine="112"/>
       </Position>
@@ -323,6 +316,14 @@
       <Position>
         <Filename Value="unit_one_forms_dtl.pas"/>
         <Caret Line="94" Column="12" TopLine="74"/>
+      </Position>
+      <Position>
+        <Filename Value="../form/unit_libstring.pas"/>
+        <Caret Line="79" Column="26" TopLine="79"/>
+      </Position>
+      <Position>
+        <Filename Value="OneFormsDtl.lpr"/>
+        <Caret Line="19" TopLine="3"/>
       </Position>
     </JumpHistory>
     <RunParams>
