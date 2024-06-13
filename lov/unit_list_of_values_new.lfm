@@ -1,0 +1,25 @@
+object form_lov_new: Tform_lov_new
+  Left = 1520
+  Height = 347
+  Top = 250
+  Width = 383
+  Caption = 'lov'
+  ClientHeight = 347
+  ClientWidth = 383
+  OnClose = FormClose
+  OnShow = FormShow
+  object dbg_lov: TDBGrid
+    Left = 0
+    Height = 347
+    Top = 0
+    Width = 383
+    Align = alClient
+    AutoEdit = False
+    Color = clWindow
+    Columns = <>
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+    TabOrder = 0
+    OnColExit = dbg_lovColExit
+    OnKeyUp = dbg_lovKeyUp
+  end
+end
