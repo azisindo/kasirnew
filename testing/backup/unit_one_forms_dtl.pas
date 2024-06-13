@@ -193,6 +193,8 @@ end;
 
 procedure Tform_one_form_dtl.edt_of_noExit(Sender: TObject);
 begin
+
+
   if  edt_of_no.Text <>'' then
   begin
     //pindah ke model
@@ -241,8 +243,6 @@ begin
       begin
         if (sender=edt_of_no) then
         begin
-          ShowMessage('dtl f2');
-
           try
 
             simpanpos:=edt_of_no.ClientToScreen(Point(0, 0));

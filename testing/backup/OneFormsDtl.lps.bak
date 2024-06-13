@@ -7,10 +7,9 @@
       <Unit>
         <Filename Value="OneFormsDtl.lpr"/>
         <IsPartOfProject Value="True"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="9"/>
+        <EditorIndex Value="10"/>
         <TopLine Value="3"/>
-        <CursorPos Y="20"/>
+        <CursorPos X="39" Y="13"/>
         <UsageCount Value="185"/>
         <Loaded Value="True"/>
       </Unit>
@@ -20,8 +19,8 @@
         <ComponentName Value="form_one_form_dtl"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <TopLine Value="74"/>
-        <CursorPos X="12" Y="94"/>
+        <TopLine Value="244"/>
+        <CursorPos X="27" Y="270"/>
         <UsageCount Value="185"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -29,7 +28,7 @@
       <Unit>
         <Filename Value="../class/class_dbconnection.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="5"/>
+        <EditorIndex Value="6"/>
         <TopLine Value="13"/>
         <CursorPos X="3" Y="13"/>
         <UsageCount Value="185"/>
@@ -39,7 +38,7 @@
         <Filename Value="model_one_forms_dtl.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="2"/>
-        <TopLine Value="142"/>
+        <TopLine Value="168"/>
         <CursorPos X="36" Y="183"/>
         <UsageCount Value="185"/>
         <Loaded Value="True"/>
@@ -47,7 +46,7 @@
       <Unit>
         <Filename Value="../form/unit_libstring.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="8"/>
+        <EditorIndex Value="9"/>
         <TopLine Value="79"/>
         <CursorPos X="26" Y="79"/>
         <UsageCount Value="183"/>
@@ -66,7 +65,7 @@
         <Filename Value="../class/class_unit_usaha.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="71"/>
+        <TopLine Value="61"/>
         <CursorPos X="28" Y="85"/>
         <UsageCount Value="179"/>
         <Loaded Value="True"/>
@@ -93,9 +92,10 @@
         <ComponentName Value="form_list_of_values"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="4"/>
-        <TopLine Value="126"/>
-        <CursorPos X="39" Y="153"/>
+        <TopLine Value="198"/>
+        <CursorPos Y="106"/>
         <UsageCount Value="82"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -103,9 +103,9 @@
       <Unit>
         <Filename Value="../lov/model_list_of_values.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="11"/>
-        <TopLine Value="45"/>
-        <CursorPos X="41" Y="51"/>
+        <EditorIndex Value="5"/>
+        <TopLine Value="5"/>
+        <CursorPos X="29" Y="11"/>
         <UsageCount Value="56"/>
         <Loaded Value="True"/>
       </Unit>
@@ -136,8 +136,8 @@
       </Unit>
       <Unit>
         <Filename Value="setvar.json"/>
-        <EditorIndex Value="6"/>
-        <CursorPos X="31" Y="4"/>
+        <EditorIndex Value="7"/>
+        <CursorPos X="41" Y="5"/>
         <UsageCount Value="88"/>
         <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="None"/>
@@ -171,7 +171,7 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="ULov"/>
-        <EditorIndex Value="10"/>
+        <EditorIndex Value="11"/>
         <TopLine Value="230"/>
         <CursorPos X="35" Y="230"/>
         <UsageCount Value="48"/>
@@ -189,7 +189,7 @@
       <Unit>
         <Filename Value="../../component/lib-master/libstring.pas"/>
         <UnitName Value="Libstring"/>
-        <EditorIndex Value="7"/>
+        <EditorIndex Value="8"/>
         <TopLine Value="309"/>
         <CursorPos X="44" Y="333"/>
         <UsageCount Value="27"/>

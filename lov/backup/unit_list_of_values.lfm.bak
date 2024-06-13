@@ -5,7 +5,6 @@ object form_list_of_values: Tform_list_of_values
   Width = 457
   ClientHeight = 392
   ClientWidth = 457
-  OnClose = FormClose
   OnShow = FormShow
   object pnl_all: TRMKPanelStandard
     Left = 9

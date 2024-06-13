@@ -69,7 +69,6 @@ procedure Tform_list_of_values.dbg_list_of_valuesKeyDown(Sender: TObject;
   VSelectedValues: TStringList;
 begin
   Fambil :='F';
-  ShowMessage('satu');
 
   if key=VK_RETURN then
     begin
@@ -86,7 +85,6 @@ begin
         begin
           VSelectedValues := FOnSelectValues(); // Memanggil function OnSelectValues untuk mendapatkan TStringList
         end;
-      ShowMessage('dbg');
       end;
       close;
     end;

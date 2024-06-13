@@ -224,8 +224,6 @@ begin
   if Assigned(lov) then
     ShowMessage('Form lov sudah ada dan belum dibebaskan.')
   else
-    ShowMessage('ada');
-
   case Key Of
       VK_RETURN:
       begin
@@ -243,8 +241,6 @@ begin
       begin
         if (sender=edt_of_no) then
         begin
-          ShowMessage('dtl f2');
-
           try
 
             simpanpos:=edt_of_no.ClientToScreen(Point(0, 0));
