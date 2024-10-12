@@ -38,19 +38,20 @@ type
     FSQLQuery: String;
     Fambil:string;
     FJudulLov: String;
+    FLovSelectedValues: TStringList;
+
 
     procedure  CustomSplitString(const InputStr, Delimiter: string; var SubStr1, SubStr2: string);
     function GetSelectedValues: TStringList; // Ubah menjadi function yang mengembalikan TStringList
 
   public
-
     property OnSelectValues: TLOVSelectValuesEvent read FOnSelectValues write FOnSelectValues;
     property SqlLov:string read  FSQLQuery write FSQLQuery;
     property SetJudulLov:string  read  FJudulLov write FJudulLov;
     Procedure Reresh_caption;
     procedure DbDisconect;
-    property LovSelectedValues: TStringList read GetSelectedValues; // Property untuk mengambil nilai yang dipilih
-
+    //property LovSelectedValues: TStringList read GetSelectedValues; // Property untuk mengambil nilai yang dipilih
+    property LovSelectedValues: TStringList read  FLovSelectedValues;
 
   end;
 
@@ -69,10 +70,10 @@ procedure Tform_list_of_values.dbg_list_of_valuesKeyDown(Sender: TObject;
   VSelectedValues: TStringList;
 begin
   Fambil :='F';
-
   if key=VK_RETURN then
     begin
 //      PnlAtas.Visible:=True;
+     // key := 0;
       ed_search.SetFocus;
     end;
 
@@ -83,24 +84,24 @@ begin
       begin
         if Assigned(FOnSelectValues) then
         begin
-          VSelectedValues := FOnSelectValues(); // Memanggil function OnSelectValues untuk mendapatkan TStringList
+          FLovSelectedValues := FOnSelectValues(); // Memanggil function OnSelectValues untuk mendapatkan TStringList
+          ModalResult := mrOK;
         end;
-      ShowMessage('dbg');
       end;
-      close;
     end;
+
 
   if key= VK_ESCAPE  then
      begin
+       key:=0;
        Fambil:='F';
-       ShowMessage('dua');
-       Close;
+       ModalResult := mrCancel;
      end;
 
   if ((Key=VK_F1)  and (ssShift in Shift)) then
      begin
       ShowMessage('F1 on dev');
-      Close;
+      ModalResult := mrCancel;
      end;
 end;
 
@@ -122,8 +123,8 @@ procedure Tform_list_of_values.ed_searchKeyDown(Sender: TObject; var Key: Word;
     v_temp:='';
     if Key=VK_ESCAPE then
       begin
+        key := 0;
         dbg_list_of_values.SetFocus;
-        //PnlAtas.Visible := False;
       end;
     if Key=VK_UP then
       dbg_list_of_values.DataSource.DataSet.Prior
@@ -173,7 +174,7 @@ begin
   if FDBConnection.IsConnected Then
      FDBConnection.Disconnect;
 
-
+  ModalResult := mrCancel;
 end;
 
 procedure Tform_list_of_values.FormShow(Sender: TObject);
@@ -185,10 +186,13 @@ begin
     ShowMessage(FDBConnection.logger);
     Abort;
   end;
+  OnSelectValues :=@GetSelectedValues;
+
   FModelListOfValues:=TModelListOfValues.Create(FDBConnection);
   dbg_list_of_values.DataSource:= FModelListOfValues.RunQuery(FSQLQuery);
   Reresh_caption;
-  dbg_list_of_values.SetFocus;
+  //dbg_list_of_values.SetFocus;
+  ed_search.SetFocus;
 end;
 
 procedure Tform_list_of_values.Reresh_caption;
@@ -263,9 +267,13 @@ begin
         for I := 0 to dbg_list_of_values.Columns.Count - 1 do
         begin
             if dbg_list_of_values.Columns[I].Field <> nil then
+            begin
               SelectedValues.Add(dbg_list_of_values.Columns[I].Field.AsString)
+            end
             else
-              SelectedValues.Add('');
+            begin
+                SelectedValues.Add('');
+            end;
         end;
       end
     else
@@ -274,7 +282,6 @@ begin
     Result := SelectedValues;
   except
     SelectedValues.Free;
-    //raise;
   end;
 end;
 

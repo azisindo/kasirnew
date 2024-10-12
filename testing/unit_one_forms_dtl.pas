@@ -16,8 +16,6 @@ type
   { Tform_one_form_dtl }
 
   Tform_one_form_dtl = class(TForm)
-    Button1: TButton;
-    Button2: TButton;
     ConnMyDb: TMyConnection;
     dbe_ofNama: TRMKDBEdit;
     dbe_of_tgl_form: TRMKDBDateEdit;
@@ -30,7 +28,9 @@ type
     lbl_nama_form: TLabel;
     lbl_no_form: TLabel;
     lbl_of_tgl_form: TLabel;
-    pnl_atas: TRMKPanelStandard;
+    pnlLOV: TRMKPanelStandard;
+    pnlLOV1: TRMKPanelStandard;
+    pnlLOV2: TRMKPanelStandard;
     pnl_bawah: TRMKPanelStandard;
     Qry_one_forms: TMyQuery;
     Qry_one_formsof_ins_date: TDateField;
@@ -48,7 +48,7 @@ type
     qry_one_form_dtlofd_of_pk: TLongintField;
     qry_one_form_dtlofd_pk: TLongintField;
     rdbg_one_forms_det: TRxDBGrid;
-    simpan: TRMKPanelWarna;
+    pnl_Lov: TRMKPanelWarna;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure dbe_of_uuExit(Sender: TObject);
@@ -56,9 +56,10 @@ type
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure KeyDownAll(Sender: TObject; var Key: Word; Shift:TShiftState);
     procedure FormShow(Sender: TObject);
+    procedure pnlLOV1Click(Sender: TObject);
+    procedure pnl_LovClick(Sender: TObject);
     procedure Qry_one_formsNewRecord(DataSet: TDataSet);
     procedure qry_one_form_dtlNewRecord(DataSet: TDataSet);
-    procedure simpanClick(Sender: TObject);
   private
     FDBConnection: TDBConnection;
     //FDBInit:TInitDB;
@@ -97,6 +98,41 @@ begin
   FUnitUsaha:=TUnitUsaha.create(FDBConnection);
 end;
 
+procedure Tform_one_form_dtl.pnlLOV1Click(Sender: TObject);
+begin
+    FModelOneFormsDtl.save(Qry_one_forms,qry_one_form_dtl);
+end;
+
+procedure Tform_one_form_dtl.pnl_LovClick(Sender: TObject);
+var
+  lov: Tform_list_of_values;
+  simpanpos:TPoint;
+  LValues: TStringList;
+begin
+    lov:=Tform_list_of_values.Create(nil);
+    simpanpos:=pnl_Lov.ClientToScreen(Point(0, 0));
+
+    lov.Caption :='LOV Master Unit Usaha';
+    lov.SqlLov  :='SELECT of_kode, of_nama FROM laz.one_forms;';
+    lov.SetJudulLov:='Master Forms ;Nama Forms;150;L;Desc;300;L';
+    lov.Left    := simpanpos.X;
+    lov.Top     := simpanpos.Y ;//+ ed_store_idPos.height;
+
+    try
+      if lov.ShowModal= mrOK then
+      begin
+        LValues:=lov.LovSelectedValues;
+        if LValues.Count > 0 then
+        begin
+          edt_of_no.Text:=LValues[0];
+        end;
+      end;
+    finally
+      lov.DbDisconect;
+      lov.Free;
+    end;
+end;
+
 procedure Tform_one_form_dtl.Qry_one_formsNewRecord(DataSet: TDataSet);
 begin
   FModelOneFormsDtl.NewRecordHdr(DataSet);
@@ -105,59 +141,6 @@ end;
 procedure Tform_one_form_dtl.qry_one_form_dtlNewRecord(DataSet: TDataSet);
 begin
   FModelOneFormsDtl.NewRecordDtl(DataSet);
-end;
-
-procedure Tform_one_form_dtl.simpanClick(Sender: TObject);
-var
-  lov: Tform_list_of_values;
-  simpanpos:TPoint;
-  LValues: TStringList;
-begin
-
-   //VK_F2:
-   // begin
-   //   if (sender=ed_store_id) then
-   //   begin
-   //     ed_store_idPos := ed_store_id.ClientToScreen(Point(0, 0));
-   //
-   //     try
-   //       vSqlForms :='Select msf_id,ms_descp from '+SetVarGlobal.Db1  +'.ms_forms ';
-   //
-   //       FrmLov.Caption :='Lov Master Unit Usaha';
-   //       FrmLov.SqlLov  := vSqlForms;
-   //       FrmLov.SetJudulLov :='Judul Lov;Id Forms;150;L;Desc;300;L';
-   //       FrmLov.Left    := ed_store_idPos.X;
-   //       FrmLov.Top     := ed_store_idPos.Y ;//+ ed_store_idPos.height;
-   //       FrmLov.ShowModal;
-   //       LValues:=FrmLov.LovSelectedValues;
-   //
-   //       if LValues.count=0 then
-   //          ShowMessage('LOV tidak ada yang di pilih');
-   //
-   //       ShowMessage('bug');
-   //
-   //       ed_store_id.Text   :=LValues[0];
-   //       ed_store_name.Text :=LValues[1];;
-   //     finally
-   //       FrmLov.Free;
-   //     end;
-   //
-   //   end;
-   // end;
-  simpanpos:=simpan.ClientToScreen(Point(0, 0));;
-  lov:=Tform_list_of_values.Create(self);
-  lov.Caption :='LOV Master Unit Usaha';
-  lov.SqlLov  :='SELECT of_kode, of_nama FROM laz.one_forms;';
-  lov.SetJudulLov:='Master Forms ;Nama Forms;150;L;Desc;300;L';
-  lov.Left    := simpanpos.X;
-  lov.Top     := simpanpos.Y ;//+ ed_store_idPos.height;
-  lov.ShowModal;
-  LValues:=Lov.LovSelectedValues;
-  //ShowMessage(LValues[0]);
-  if LValues.Count > 0 then;
-  edt_of_no.Text:=LValues[0];
-
-
 end;
 
 
@@ -219,11 +202,6 @@ var
   LValues: TStringList;
 
 begin
-  lov:= nil;
-
-  if Assigned(lov) then
-    ShowMessage('Form lov sudah ada dan belum dibebaskan.')
-  else
   case Key Of
       VK_RETURN:
       begin
@@ -231,35 +209,39 @@ begin
             ShowMessage('dbg')
         else
           //SelectNext(ActiveControl,True,True);
-          begin
-          ShowMessage('masuk sini');
+          //ShowMessage('masuk sini');
           SelectNext(ActiveControl,True,True);
-          end;
       end;
 
       VK_F2:
       begin
         if (sender=edt_of_no) then
         begin
+          lov:=Tform_list_of_values.Create(nil);
+          simpanpos:=edt_of_no.ClientToScreen(Point(0, 0));
+
+          lov.Caption :='LOV Master Unit Usaha';
+          lov.SqlLov  :='SELECT of_kode, of_nama FROM laz.one_forms;';
+          lov.SetJudulLov:='Master Forms ;Nama Forms;150;L;Desc;300;L';
+          lov.Left    := simpanpos.X;
+          lov.Top     := simpanpos.Y ;//+ ed_store_idPos.height;
           try
 
-            simpanpos:=edt_of_no.ClientToScreen(Point(0, 0));
-
-            lov:=Tform_list_of_values.Create(nil);
-            lov.Caption :='LOV Master Unit Usaha';
-            lov.SqlLov  :='SELECT of_kode, of_nama FROM laz.one_forms;';
-            lov.SetJudulLov:='Master Forms ;Nama Forms;150;L;Desc;300;L';
-            lov.Left    := simpanpos.X;
-            lov.Top     := simpanpos.Y ;//+ ed_store_idPos.height;
-            lov.ShowModal;
-            LValues:=Lov.LovSelectedValues;
-
-            if LValues.Count > 0 then;
+            if lov.ShowModal= mrOK then
             begin
-              edt_of_no.Text:=LValues[0];
-              ShowMessage(LValues[0]);
+              LValues:=lov.LovSelectedValues;
+              if LValues.Count > 0 then
+              begin
+                edt_of_no.Text:=LValues[0];
+              end;
+              key := 0;
             end;
-
+             //debuging jika esc
+            //if lov.ModalResult = mrCancel then
+            //  begin
+            //    key:=0;
+            //    ShowMessage('Form ditutup dengan Esc.');
+            //  end;
           finally
             lov.DbDisconect;
             lov.Free;
@@ -275,6 +257,5 @@ begin
       end;
   end;
 end;
-
 end.
 

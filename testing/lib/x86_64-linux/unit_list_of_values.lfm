@@ -2,15 +2,16 @@ object form_list_of_values: Tform_list_of_values
   Left = 1520
   Height = 392
   Top = 250
-  Width = 457
+  Width = 609
   ClientHeight = 392
-  ClientWidth = 457
+  ClientWidth = 609
+  OnClose = FormClose
   OnShow = FormShow
   object pnl_all: TRMKPanelStandard
     Left = 9
     Height = 374
     Top = 9
-    Width = 439
+    Width = 591
     Align = alClient
     BorderSpacing.Left = 9
     BorderSpacing.Top = 9
@@ -18,24 +19,24 @@ object form_list_of_values: Tform_list_of_values
     BorderSpacing.Bottom = 9
     BevelOuter = bvNone
     ClientHeight = 374
-    ClientWidth = 439
+    ClientWidth = 591
     TabOrder = 0
     object pnl_top: TRMKPanelStandard
       Left = 0
       Height = 34
       Top = 0
-      Width = 439
+      Width = 591
       Align = alTop
       BevelOuter = bvNone
       Caption = 'pnl_top'
       ClientHeight = 34
-      ClientWidth = 439
+      ClientWidth = 591
       TabOrder = 0
       object ed_search: TEdit
         Left = 0
         Height = 34
         Top = 0
-        Width = 404
+        Width = 556
         Align = alClient
         BorderStyle = bsNone
         Font.Color = clGray
@@ -50,7 +51,7 @@ object form_list_of_values: Tform_list_of_values
         OnKeyPress = ed_searchKeyPress
       end
       object SpeedButton1: TSpeedButton
-        Left = 404
+        Left = 556
         Height = 34
         Top = 0
         Width = 35
@@ -108,17 +109,17 @@ object form_list_of_values: Tform_list_of_values
       Left = 0
       Height = 306
       Top = 34
-      Width = 439
+      Width = 591
       Align = alClient
       BevelOuter = bvNone
       ClientHeight = 306
-      ClientWidth = 439
+      ClientWidth = 591
       TabOrder = 1
       object dbg_list_of_values: TRxDBGrid
         Left = 0
         Height = 306
         Top = 0
-        Width = 439
+        Width = 591
         ColumnDefValues.BlobText = '(blob)'
         TitleButtons = False
         AutoSort = True
@@ -199,7 +200,7 @@ object form_list_of_values: Tform_list_of_values
       Left = 0
       Height = 34
       Top = 340
-      Width = 439
+      Width = 591
       Align = alBottom
       BevelOuter = bvNone
       TabOrder = 2

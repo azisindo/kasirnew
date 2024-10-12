@@ -6,13 +6,13 @@ object form_one_form_dtl: Tform_one_form_dtl
   Caption = 'Forms Master Forms'
   ClientHeight = 528
   ClientWidth = 774
+  Color = clNone
   OnShow = FormShow
   Position = poDesktopCenter
-  LCLVersion = '3.2.0.0'
   object dbe_ofNama: TRMKDBEdit
     Left = 256
     Height = 24
-    Top = 99
+    Top = 115
     Width = 224
     DataField = 'of_nama'
     DataSource = Ds_Form_Head
@@ -23,9 +23,10 @@ object form_one_form_dtl: Tform_one_form_dtl
   end
   object edt_of_no: TRMKEdit
     Left = 256
-    Height = 24
-    Top = 40
+    Height = 29
+    Top = 51
     Width = 80
+    AutoSize = False
     TabOrder = 0
     OnExit = edt_of_noExit
     OnKeyDown = KeyDownAll
@@ -35,7 +36,7 @@ object form_one_form_dtl: Tform_one_form_dtl
   object dbe_of_tgl_form: TRMKDBDateEdit
     Left = 256
     Height = 24
-    Top = 125
+    Top = 141
     Width = 132
     CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
     DefaultToday = True
@@ -55,23 +56,29 @@ object form_one_form_dtl: Tform_one_form_dtl
   object lbl_no_form: TLabel
     Left = 152
     Height = 17
-    Top = 47
-    Width = 81
+    Top = 63
+    Width = 80
     Caption = 'Nomor Form'
+    Font.Name = 'SF UI Text'
+    ParentFont = False
   end
   object lbl_nama_form: TLabel
     Left = 152
     Height = 17
-    Top = 106
-    Width = 76
+    Top = 122
+    Width = 73
     Caption = 'Nama Form'
+    Font.Name = 'SF UI Text'
+    ParentFont = False
   end
   object lbl_of_tgl_form: TLabel
     Left = 152
     Height = 17
-    Top = 132
-    Width = 87
+    Top = 148
+    Width = 85
     Caption = 'Tanggal Form'
+    Font.Name = 'SF UI Text'
+    ParentFont = False
   end
   object rdbg_one_forms_det: TRxDBGrid
     Left = 0
@@ -186,29 +193,67 @@ object form_one_form_dtl: Tform_one_form_dtl
     Top = 494
     Width = 774
     Align = alBottom
-    TabOrder = 7
-  end
-  object pnl_atas: TRMKPanelStandard
-    Left = 0
-    Height = 34
-    Top = 0
-    Width = 774
-    Align = alTop
+    ClientHeight = 34
+    ClientWidth = 774
+    ParentBackground = False
     TabOrder = 6
-  end
-  object Button1: TButton
-    Left = 644
-    Height = 25
-    Top = 100
-    Width = 75
-    Caption = 'Button1'
-    TabOrder = 8
-    OnClick = Button1Click
+    object pnlLOV: TRMKPanelStandard
+      AnchorSideTop.Control = pnl_bawah
+      AnchorSideTop.Side = asrCenter
+      Left = 1
+      Height = 32
+      Top = 1
+      Width = 118
+      Align = alLeft
+      BevelOuter = bvNone
+      Caption = 'F2 [List of Value]'
+      Color = clInfoBk
+      ParentBackground = False
+      ParentColor = False
+      TabOrder = 0
+    end
+    object pnlLOV1: TRMKPanelStandard
+      AnchorSideLeft.Control = pnl_bawah
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Control = pnl_bawah
+      AnchorSideTop.Side = asrCenter
+      Left = 122
+      Height = 32
+      Top = 1
+      Width = 90
+      Align = alLeft
+      BorderSpacing.Left = 3
+      BevelOuter = bvNone
+      Caption = 'F9 [Save]'
+      Color = clGreen
+      ParentBackground = False
+      ParentColor = False
+      TabOrder = 1
+      OnClick = pnlLOV1Click
+    end
+    object pnlLOV2: TRMKPanelStandard
+      AnchorSideLeft.Control = pnl_bawah
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Control = pnl_bawah
+      AnchorSideTop.Side = asrCenter
+      Left = 215
+      Height = 32
+      Top = 1
+      Width = 90
+      Align = alLeft
+      BorderSpacing.Left = 3
+      BevelOuter = bvNone
+      Caption = 'F5 [Cancel]'
+      Color = clRed
+      ParentBackground = False
+      ParentColor = False
+      TabOrder = 2
+    end
   end
   object ed_edit_name: TRMKEdit
     Left = 340
     Height = 24
-    Top = 71
+    Top = 87
     Width = 424
     TabOrder = 2
     OnKeyDown = KeyDownAll
@@ -218,7 +263,7 @@ object form_one_form_dtl: Tform_one_form_dtl
   object dbe_of_uu: TRMKDBEdit
     Left = 256
     Height = 24
-    Top = 71
+    Top = 87
     Width = 80
     DataField = 'of_uu_code'
     DataSource = Ds_Form_Head
@@ -229,35 +274,28 @@ object form_one_form_dtl: Tform_one_form_dtl
     MudarColor = 14087422
   end
   object lbl_kode_cabang: TLabel
-    Left = 154
+    Left = 152
     Height = 17
-    Top = 78
-    Width = 85
+    Top = 92
+    Width = 84
     Caption = 'Kode Cabang'
+    Font.Name = 'SF UI Text'
+    ParentFont = False
   end
-  object Button2: TButton
-    Left = 512
-    Height = 25
-    Top = 100
-    Width = 75
-    Caption = 'Button2'
-    TabOrder = 9
-    OnClick = Button2Click
-  end
-  object simpan: TRMKPanelWarna
-    Left = 588
-    Height = 38
-    Top = 128
-    Width = 170
+  object pnl_Lov: TRMKPanelWarna
+    Left = 340
+    Height = 29
+    Top = 51
+    Width = 30
     BevelOuter = bvNone
-    Caption = 'simpan'
+    Caption = 'F2'
     Color = clInfoBk
     ParentBackground = False
     ParentColor = False
-    TabOrder = 10
-    OnClick = simpanClick
+    TabOrder = 7
+    OnClick = pnl_LovClick
     CorInicial = clInfoBk
-    CorMouseSob = clHotLight
+    CorMouseSob = clWindow
   end
   object ConnMyDb: TMyConnection
     Username = 'root'
